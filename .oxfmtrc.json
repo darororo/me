@@ -1,5 +1,13 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "semi": false,
-  "singleQuote": true
+  "singleQuote": true,
+  "vueIndentScriptAndStyle": true,
+  "objectWrap": "collapse",
+  "singleAttributePerLine": true,
+  "tabWidth": 2,
+  "sortImports": true,
+  "trailingComma": "all",
+  "printWidth": 70,
+  "htmlWhitespaceSensitivity": "strict"
 }

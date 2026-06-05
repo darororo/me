@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-scheme: 'light';
+  --font-title: 'Lato', sans-serif;
+  --font-sans: 'Lato', sans-serif;
+}
+
+html:not(.dark) {
+  background: linear-gradient(
+    135deg,
+    #f5f7fa,
+    #e4e8f0 25%,
+    #faf5f0 50%,
+    #f0f5fa 75%,
+    #f5f7fa
+  );
+  background-attachment: fixed;
+}
