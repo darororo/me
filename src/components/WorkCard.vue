@@ -58,6 +58,9 @@ onMounted(() => {
     },
   )
 })
+
+const baseUrl = import.meta.env.BASE_URL
+const imgSrc = `${baseUrl}${props.img?.src}`
 </script>
 
 <template>
@@ -106,7 +109,7 @@ onMounted(() => {
         <a
           v-if="props.repo?.src"
           target="_blank" rel="noopener noreferrer"
-          :href="props.repo?.src"
+          :href="imgSrc"
           class="bg-gray-500 text-white p-4 rounded-xl absolute
           translate-y-20 hover:bg-gray-800
           "
