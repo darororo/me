@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { WorkCardProps } from '@/utils/interfaces'
-import gsap from 'gsap'
+import { useMediaQuery } from '@vueuse/core'
 
+import gsap from 'gsap'
 import { onMounted, ref, useTemplateRef } from 'vue'
 import GithubButton from './GithubButton.vue'
 
@@ -20,7 +21,12 @@ function onMouseMove(e: MouseEvent) {
   hoveredX.value = `${e.clientX - rect.left}px`
   hoveredY.value = `${e.clientY - rect.top}px`
 }
+
+const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 onMounted(() => {
+  if (!isLargeScreen) {
+    return
+  }
   // Card Animation
   gsap.fromTo(
     card.value,
@@ -68,13 +74,14 @@ const imgSrc = `${baseUrl}${props.img?.src}`
   <div class="relative">
     <div
       ref="cardRef"
-      class="card bg-white min-h-40 w-2xl p-4 border rounded-lg hover:border-2 hover:scale-102 transition-[scale] duration-200"
+      class="card bg-white min-h-40 w-sm lg:w-2xl p-4 border rounded-lg hover:border-2
+      hover:scale-102 transition-[scale] duration-200"
       @mousemove="onMouseMove"
     >
       <div class="p-2">
         <ul class="space-y-4">
           <div class="flex items-center justify-between">
-            <h3 class="text-xl font-bold">
+            <h3 class="text-sm lg:text-xl font-bold">
               {{ props.title }}
             </h3>
             <GithubButton
@@ -82,7 +89,7 @@ const imgSrc = `${baseUrl}${props.img?.src}`
               :src="props.repo?.src"
             />
           </div>
-          <div class="pl-4 text-xl">
+          <div class="pl-4 text-sm lg:text-xl">
             <li v-for="item in props.items" :key="item" class="py-1">
               {{ item }}
             </li>
@@ -90,12 +97,12 @@ const imgSrc = `${baseUrl}${props.img?.src}`
         </ul>
       </div>
 
-      <div>
+      <div class="text-sm lg:text-xl">
         Technologies:
         <span
           v-for="tech in props.technologies"
           :key="tech"
-          class="py-1 px-2 bg-green-700 text-white rounded-lg mx-1"
+          class="py-0.5 lg:py-1 px-2 bg-green-700 text-white rounded-lg mx-1"
         >
           {{ tech }}
         </span>
@@ -103,9 +110,9 @@ const imgSrc = `${baseUrl}${props.img?.src}`
     </div>
     <div
       ref="galleryRef"
-      class="absolute w-sm  top-0 -right-1/2 "
+      class="hidden lg:block absolute w-sm  top-0 -right-1/2 "
     >
-      <div class="relative flex flex-col items-cente">
+      <div class=" relative flex flex-col items-cente">
         <img
           v-if="props.img?.src"
           class="absolute rounded-lg "

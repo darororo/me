@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
+import { useMediaQuery } from '@vueuse/core'
 import gsap from 'gsap'
 import { DrawSVGPlugin, ScrollTrigger } from 'gsap/all'
 import { onMounted, useTemplateRef } from 'vue'
@@ -16,7 +17,13 @@ useHead({
   title: 'Daro - Portfolio',
 })
 
+const isLargeScreen = useMediaQuery('(min-width: 1024px)')
+
 onMounted(() => {
+  if (!isLargeScreen) {
+    return
+  }
+
   gsap.to(paracat.value, {
     scrollTrigger: {
       trigger: paracat.value,
@@ -32,7 +39,11 @@ onMounted(() => {
 <template>
   <div class="relative overflow-hidden">
     <div ref="paracatRef" class="absolute z-20 top-0 right-0 rotate-y-180">
-      <img src="/cat-skydive.gif" alt="">
+      <img
+        src="/cat-skydive.gif"
+        class="hidden lg:block"
+        alt=""
+      >
     </div>
     <div>
       <ProfileSection />
@@ -45,7 +56,7 @@ onMounted(() => {
             Experiences
           </h3>
         </div>
-        <WorkSection class="px-20" />
+        <WorkSection class="px-4 lg:px-20" />
       </section>
 
       <section

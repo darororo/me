@@ -5,14 +5,17 @@ import GithubButton from './GithubButton.vue'
 
 <template>
   <div>
-    <div class="flex gap-40 justify-center p-8  rounded-lg">
+    <div
+      class="flex flex-col lg:flex-row lg:gap-40 justify-center p-8  rounded-lg
+    pb-20 items-center lg:items-start"
+    >
       <div class="relative">
         <div>
           <div class="p-8 border-2 rounded-lg bg-white relative">
-            <h2 class="text-3xl font-bold mb-4">
+            <h2 class="text-xl lg:text-3xl font-bold mb-4">
               ABA Invoice OCR
             </h2>
-            <ul class="text-2xl space-y-2">
+            <ul class="text-lg lg:text-2xl space-y-2">
               <li class="flex gap-2">
                 <span>🤖</span>
                 <span>Convert ABA invoice to CSV</span>
@@ -23,13 +26,13 @@ import GithubButton from './GithubButton.vue'
               </li>
             </ul>
 
-            <div class="text-xl flex gap-1 items-center py-2">
+            <div class="text-md lg:text-xl flex gap-1 items-center py-2">
               <span><LaptopMinimal /></span>
               Technologies:
               <span
                 v-for="tech in ['Python', 'Tesseract OCR']"
                 :key="tech"
-                class="py-1 px-2 bg-green-700 text-white rounded-lg mx-1"
+                class="py-0.5 lg:py-1 px-2 bg-green-700 text-white rounded-lg mx-1"
               >
                 {{ tech }}
               </span>

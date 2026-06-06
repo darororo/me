@@ -2,17 +2,22 @@
 import type { WorkContentProps } from '@/utils/interfaces.ts'
 import { BriefcaseBusiness, Building2, Calendar } from '@lucide/vue'
 
-import gsap from 'gsap'
+import { useMediaQuery } from '@vueuse/core'
 
+import gsap from 'gsap'
 import { onMounted, useTemplateRef } from 'vue'
 import WorkCard from './WorkCard.vue'
 
 const props = defineProps<WorkContentProps>()
 const line = useTemplateRef('lineRef')
 const img = useTemplateRef('imageRef')
+const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 
 onMounted(() => {
   // Line Animation
+  if (!isLargeScreen) {
+    return
+  }
   gsap.fromTo(
     line.value,
     {
@@ -39,19 +44,31 @@ const placeImgUrl = `${baseUrl}${props?.placeImg?.src}`
 
 <template>
   <div class="">
-    <div class="flex flex-col gap-2">
-      <h2 class="font-bold text-xl flex gap-1 items-center">
-        <span><BriefcaseBusiness /></span> {{ props.position }}
-      </h2>
-      <p class="flex gap-1 items-center">
-        <span><Building2 /></span> {{ props.place }}
-      </p>
-      <p class="flex gap-1 items-center">
-        <span><Calendar /></span> {{ props.date }}
-      </p>
+    <div
+      class="flex flex-row items-center justify-center lg:justify-start
+     lg:items-start lg:flex-row gap-24 lg:gap-2"
+    >
+      <div class="">
+        <h2 class="font-bold text-lg lg:text-xl flex gap-1 items-center text-nowrap">
+          <span><BriefcaseBusiness /></span> {{ props.position }}
+        </h2>
+        <p class="flex gap-1 items-center">
+          <span><Building2 /></span> {{ props.place }}
+        </p>
+        <p class="flex gap-1 items-center">
+          <span><Calendar /></span> {{ props.date }}
+        </p>
+      </div>
+      <div class="">
+        <img
+          :src="`${baseUrl}${props.placeImg.src}`"
+          :alt="props.placeImg.alt"
+          class=" lg:hidden rounded-full w-24"
+        >
+      </div>
     </div>
-    <div class="flex gap-20 mt-4">
-      <div class="relative flex flex-col items-center justify-start">
+    <div class="flex justify-center lg:justify-start gap-20 mt-4">
+      <div class="hidden lg:flex relative  flex-col items-center justify-start">
         <img
           ref="imageRef"
           loading="lazy"
@@ -66,7 +83,7 @@ const placeImgUrl = `${baseUrl}${props?.placeImg?.src}`
         />
       </div>
 
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4 justify-center items-center">
         <WorkCard
           v-for="(card, i) in props.cards"
           :key="i"

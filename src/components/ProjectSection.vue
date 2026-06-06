@@ -85,16 +85,16 @@ onMounted(() => {
     <div>
       <div
         ref="abaRef"
-        class="absolute w-full h-160 -z-10"
+        class="absolute w-full h-220 -z-10"
       />
       <ProjectAbaScanner />
     </div>
     <div>
-      <div ref="automataRef" class="absolute w-full h-160 -z-10" />
+      <div ref="automataRef" class="absolute w-full h-220 -z-10" />
       <ProjectAutomata />
     </div>
     <div>
-      <div ref="gameRef" class="absolute w-full h-160 " />
+      <div ref="gameRef" class="absolute w-full h-220 " />
       <ProjectFightyC class="" />
     </div>
   </div>

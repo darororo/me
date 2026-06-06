@@ -10,12 +10,13 @@ defineProps<{
     target="_blank"
     rel="noopener noreferrer"
     :href="src"
-    class="py-2 px-4 bg-gray-600 rounded-lg flex items-center gap-1 text-white font-semibold"
+    class="py-1 lg:py-2 px-2 lg:px-4 bg-gray-600 rounded-lg flex items-center gap-1 text-white font-semibold
+    text-xs lg:text-xl"
   >
     <img
-      src="/github.png" alt="Repository" width="32"
+      src="/github.png" alt="Repository"
       loading="lazy"
-      class="bg-white rounded-full"
+      class="bg-white rounded-full w-6 lg:w-8"
     >
     <span>Github</span>
   </a>

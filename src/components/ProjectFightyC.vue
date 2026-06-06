@@ -25,14 +25,17 @@ onMounted(() => {
   <div
     ref="containerRef"
   >
-    <div class="flex gap-40 justify-center p-8  rounded-lg">
+    <div
+      class="flex flex-col lg:flex-row lg:gap-40 justify-center p-8  rounded-lg
+    items-center lg:items-start"
+    >
       <div class="relative">
         <div>
           <div class="p-8 border-2 rounded-lg bg-white relative">
-            <h2 class="text-3xl font-bold mb-4">
+            <h2 class="text-xl lg:text-3xl font-bold mb-4">
               Fighty-C
             </h2>
-            <ul class="text-2xl space-y-2">
+            <ul class="text-lg lg:text-2xl space-y-2">
               <li class="flex gap-2">
                 <span>🎮</span>
                 <span>KOF clone for OOP class</span>
@@ -43,13 +46,13 @@ onMounted(() => {
               </li>
             </ul>
 
-            <div class="text-xl flex gap-1 items-center py-2">
+            <div class="text-md lg:text-xl flex gap-1 items-center py-2">
               <span><LaptopMinimal /></span>
               Technologies:
               <span
                 v-for="tech in ['Java', 'FXGL']"
                 :key="tech"
-                class="py-1 px-2 bg-green-700 text-white rounded-lg mx-1"
+                class="py-0.5 lg:py-1 px-2 bg-green-700 text-white rounded-lg mx-1"
               >
                 {{ tech }}
               </span>
@@ -66,11 +69,11 @@ onMounted(() => {
               class="absolute top-6 -translate-y-1/2 -translate-x-24"
             >
           </div>
-          <div class="relative">
+          <div class="relative z-10 -top-15">
             <div ref="cowRef" class="absolute w-sm -bottom-4">
               <img
                 loading="lazy"
-                class=" absolute  "
+                class=" absolute"
                 src="/fighty-c/boss.png"
                 alt="Boss"
               >
