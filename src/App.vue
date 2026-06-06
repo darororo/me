@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/all'
+import { DrawSVGPlugin, ScrollTrigger } from 'gsap/all'
 import { onMounted, useTemplateRef } from 'vue'
 import ProfileSection from './components/ProfileSection.vue'
 import ProjectSection from './components/ProjectSection.vue'
 import WorkSection from './components/WorkSection.vue'
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin)
 
 const paracat = useTemplateRef('paracatRef')
 const calloutSectionRef = useTemplateRef('stopSectionRef')

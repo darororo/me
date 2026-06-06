@@ -4,6 +4,8 @@ import { onMounted, useTemplateRef } from 'vue'
 import ProjectAbaScanner from './ProjectAbaScanner.vue'
 import ProjectAutomata from './ProjectAutomata.vue'
 import ProjectFightyC from './ProjectFightyC.vue'
+import Wave1 from './svgs/Wave1.vue'
+import Wave2 from './svgs/Wave2.vue'
 
 const container = useTemplateRef('containerRef')
 const aba = useTemplateRef('abaRef')
@@ -69,6 +71,8 @@ onMounted(() => {
 <template>
   <div ref="containerRef" class="relative">
     <div class="flex items-center justify-center relative">
+      <Wave1 class="absolute top-0 -left-10 -z-10" />
+      <Wave2 class="absolute top-10  -left-10 -z-5" />
       <h3 class="text-4xl font-bold mb-8 px-20 py-4 bg-lime-500 text-white rounded-lg">
         Fun Projects
       </h3>
