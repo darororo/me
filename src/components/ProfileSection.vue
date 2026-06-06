@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ContactButton from './ContactButton.vue'
 
-const baseUrl = import.meta.env.BASE_URL
+
 </script>
 
 <template>
@@ -17,23 +17,23 @@ const baseUrl = import.meta.env.BASE_URL
     <div class="flex items-center justify-center gap-4 mt-4">
       <ContactButton
         url="https://github.com/darororo"
-        :img-src="`${baseUrl}/github.png`"
+      img-src="/github.png"
         alt="github"
       />
       <ContactButton
         url="https://t.me/daroyem"
-        :img-src="`${baseUrl}/telegram.webp`"
+        img-src="/telegram.webp"
         alt="telegram"
       />
       <ContactButton
         url="mailto:daroyem99@gmail.com"
-        :img-src="`${baseUrl}/gmail.svg`"
+        img-src="/gmail.svg"
         alt="gmail"
         class="bg-white"
       />
       <ContactButton
         url="https://www.linkedin.com/in/daro-yem-723b66229/"
-        :img-src="`${baseUrl}/linkedin.webp`"
+        img-src="/linkedin.webp"
         alt="linkedin"
       />
     </div>
