@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import gsap from 'gsap'
-import { MorphSVGPlugin, ScrollTrigger } from 'gsap/all'
+import {ScrollTrigger } from 'gsap/all'
 import { onMounted, useTemplateRef } from 'vue'
 import ProfileSection from './components/ProfileSection.vue'
 import ProjectSection from './components/ProjectSection.vue'
 import WorkSection from './components/WorkSection.vue'
 
-gsap.registerPlugin(ScrollTrigger, MorphSVGPlugin)
+gsap.registerPlugin(ScrollTrigger)
 
 const paracat = useTemplateRef('paracatRef')
 const calloutSectionRef = useTemplateRef('stopSectionRef')
