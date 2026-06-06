@@ -61,8 +61,8 @@ const placeImgUrl = `${baseUrl}${props?.placeImg?.src}`
       </div>
       <div class="">
         <img
-          :src="`${baseUrl}${props.placeImg.src}`"
-          :alt="props.placeImg.alt"
+          :src="`${baseUrl}${props.placeImg?.src}`"
+          :alt="props.placeImg?.alt"
           class=" lg:hidden rounded-full w-24"
         >
       </div>

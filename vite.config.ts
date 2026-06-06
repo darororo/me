@@ -14,4 +14,9 @@ export default defineConfig({
     },
   },
   base: '/me',
+  build: {
+    rollupOptions: {
+      external: ['@vueuse/core', '@vueuse/shared', '@vue/reactivity'],
+    },
+  },
 })
