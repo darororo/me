@@ -29,16 +29,16 @@ onMounted(() => {
         <div>
           <div class="p-8 border-2 rounded-lg bg-white relative">
             <h2 class="text-3xl font-bold mb-4">
-              Fighty-C
+              ABA Invoice OCR
             </h2>
             <ul class="text-2xl space-y-2">
               <li class="flex gap-2">
-                <span>🎮</span>
-                <span>KOF clone for OOP class</span>
+                <span>🤖</span>
+                <span>Convert ABA invoice to CSV</span>
               </li>
               <li class="flex gap-2">
-                <span>🐄</span>
-                <span>Added <b>COW</b> as a boss that made the whole class <b>laughed</b> :D</span>
+                <span>⚡️</span>
+                <span>Customizable script to convert images in bulk</span>
               </li>
             </ul>
 
@@ -46,7 +46,7 @@ onMounted(() => {
               <span><LaptopMinimal /></span>
               Technologies:
               <span
-                v-for="tech in ['Java', 'FXGL']"
+                v-for="tech in ['Python', 'Tesseract OCR']"
                 :key="tech"
                 class="py-1 px-2 bg-green-700 text-white rounded-lg mx-1"
               >
@@ -57,7 +57,7 @@ onMounted(() => {
 
           <div class="mt-6 relative flex justify-end">
             <a
-              href="https://github.com/darororo/FXGL-Fighting-Game"
+              href="https://github.com/darororo/aba-invoice-ocr"
               target="_blank" rel="noopener noreferrer"
               class="bg-gray-500 hover:bg-sky-800 p-4 text-2xl text-white rounded-2xl "
             >
@@ -69,36 +69,11 @@ onMounted(() => {
               class="absolute top-6 -translate-y-1/2 -translate-x-24"
             >
           </div>
-          <div class="relative">
-            <div ref="cowRef" class="absolute w-sm -bottom-4">
-              <img
-                loading="lazy"
-                class=" absolute  "
-                src="/fighty-c/boss.png"
-                alt="Boss"
-              >
-              <img
-                ref="flameRef"
-                loading="lazy"
-                class=".flame absolute translate-x-full left-12 -top-5"
-                src="/fighty-c/flame.gif"
-                alt="Flame"
-              >
-
-              <img
-                ref="blastRef"
-                loading="lazy"
-                class=".flame absolute translate-x-full left-20 top-0 w-16"
-                src="/fighty-c/blast.png"
-                alt="Flame"
-              >
-            </div>
-          </div>
         </div>
       </div>
 
       <div class="relative">
-        <img loading="lazy" src="/fighty-c/game.png" alt="">
+        <img loading="lazy" src="/aba-scanner.png" alt="aba scanner" class="rounded-2xl">
       </div>
     </div>
   </div>

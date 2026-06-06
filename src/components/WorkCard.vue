@@ -42,7 +42,6 @@ onMounted(() => {
   gsap.fromTo(
     gallery.value,
     {
-      backgroundColor: 'red',
       opacity: 0,
       x: 1000,
     },
@@ -94,13 +93,29 @@ onMounted(() => {
     </div>
     <div
       ref="galleryRef"
-      class="absolute w-sm bg-red-400 top-0 -right-1/2"
+      class="absolute w-sm  top-0 -right-1/2 "
     >
       <div class="relative">
         <img
-          class="absolute rounded-lg"
-          src="/ai-portal/landing.png"
-          alt=""
+          v-if="props.img?.src"
+          class="absolute rounded-lg "
+          :src="props.img?.src"
+          :alt="props.img?.alt"
+          loading="lazy"
+        >
+        <a
+          v-if="props.repo?.src"
+          target="_blank" rel="noopener noreferrer"
+          :href="props.repo?.src"
+          class="bg-gray-500 text-white p-4 rounded-xl absolute
+          translate-y-20 hover:bg-gray-800
+          "
+        >
+          Github
+        </a>
+        <img
+          v-if="props.repo?.src" src="/lightning.gif" alt=""
+          class="absolute -z-10 -translate-y-12"
         >
       </div>
     </div>

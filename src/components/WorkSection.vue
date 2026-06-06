@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { WorkContentProps } from '@/utils/interfaces'
 
+import gsap from 'gsap'
+import { onMounted } from 'vue'
 import WorkContent from './WorkContent.vue'
 
 const works: WorkContentProps[] = [
@@ -22,6 +24,10 @@ const works: WorkContentProps[] = [
           'Dockerized and Deployed the application to staging environment.',
         ],
         technologies: ['Vue', 'Laravel', 'InertiaJs', 'Docker'],
+        img: {
+          src: '/ai-portal/landing.png',
+          alt: 'AI Portal',
+        },
       },
 
       {
@@ -31,6 +37,10 @@ const works: WorkContentProps[] = [
           'Deployed Ollama service for intregating with the prototype.',
         ],
         technologies: ['Vue', 'Ollama', 'Docker'],
+        img: {
+          src: '/chatbot/landing.png',
+          alt: 'Chatbot',
+        },
       },
     ],
   },
@@ -51,6 +61,10 @@ const works: WorkContentProps[] = [
           'Managed task allocation, and communicated updates directly with clients',
         ],
         technologies: ['Flutter', 'Dart'],
+        img: {
+          src: '/sala-portal.png',
+          alt: 'Sala Portal',
+        },
       },
 
       {
@@ -69,16 +83,77 @@ const works: WorkContentProps[] = [
           'Developed a NestJS backend service to integrate the LLM service and Telegram Bot API using Telegraf to deliver AI-driven customer support.',
           'Implemented prompt injection guard using Meta Guardrail and regex check',
         ],
+        technologies: ['NestJS', 'Telegraf', 'Github Actions'],
+        repo: {
+          src: 'https://github.com/darororo/shoppio-online',
+        },
       },
     ],
   },
 ]
+
+onMounted(() => {
+  const splatters = gsap.utils.toArray('.splatter')
+
+  splatters.forEach((splatter) => {
+    gsap.fromTo((splatter), {
+      opacity: 0,
+    }, {
+      opacity: 1,
+      scrollTrigger: {
+        trigger: splatter,
+        start: 'top center',
+      },
+    })
+  })
+})
 </script>
 
 <template>
   <div
-    class="flex flex-col gap-4"
+    class="flex flex-col gap-4 relative"
   >
+    <div class="relative">
+      <!-- Splatter 1: Right side, top -->
+      <img
+        src="/splatters/splatter-1.png"
+        alt=""
+        width="200"
+        class="splatter absolute -z-10"
+        style="right: -160px; top: 0;"
+        loading="lazy"
+      >
+
+      <!-- Splatter 2: Left side, shifted down -->
+      <img
+        src="/splatters/splatter-2.png"
+        alt=""
+        width="200"
+        class="splatter absolute -z-10"
+        style="left: -160px; top: 400px;"
+        loading="lazy"
+      >
+
+      <!-- Splatter 3: Right side, shifted further down -->
+      <img
+        src="/splatters/splatter-3.png"
+        alt=""
+        width="200"
+        class="splatter absolute -z-10"
+        style="right: -160px; top: 800px;"
+        loading="lazy"
+      >
+
+      <!-- Splatter 4: Left side, shifted even further down -->
+      <img
+        src="/splatters/splatter-4.png"
+        alt=""
+        width="200"
+        class="splatter absolute -z-10"
+        style="left: -160px; top: 1600px;"
+        loading="lazy"
+      >
+    </div>
     <WorkContent
       v-for="(work, i) in works"
       :key="i"

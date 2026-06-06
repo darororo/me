@@ -4,10 +4,15 @@ export interface WorkContentProps {
   placeImg?: Partial<HTMLImageElement>
   date?: string
   cards?: WorkCardProps[]
+
 }
 
 export interface WorkCardProps {
   title?: string
   items?: string[]
   technologies?: string[]
+  img?: Partial<HTMLImageElement>
+  repo?: {
+    src?: string
+  }
 }
