@@ -13,10 +13,6 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  base: '/me',
-  build: {
-    rollupOptions: {
-      external: ['@vueuse/core', '@vueuse/shared', '@vue/reactivity'],
-    },
-  },
+  // base: '/me',
+
 })

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { WorkCardProps } from '@/utils/interfaces'
-import { useMediaQuery } from '@vueuse/core'
+import { useMediaQuery } from '@/composables/useMediaQuery.ts'
 
 import gsap from 'gsap'
-import { onMounted, ref, useTemplateRef } from 'vue'
+import { computed, onMounted, ref, useTemplateRef } from 'vue'
 import GithubButton from './GithubButton.vue'
 
 const props = defineProps<WorkCardProps>()
@@ -66,8 +66,16 @@ onMounted(() => {
   )
 })
 
-const baseUrl = import.meta.env.BASE_URL
-const imgSrc = `${baseUrl}${props.img?.src}`
+const baseUrl = computed(() => {
+  const url = import.meta.env.BASE_URL
+  if (url === '/') {
+    return ''
+  }
+
+  return url
+})
+
+const imgSrc = `${baseUrl.value}${props.img?.src}`
 </script>
 
 <template>

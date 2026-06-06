@@ -2,11 +2,11 @@
 import type { WorkContentProps } from '@/utils/interfaces.ts'
 import { BriefcaseBusiness, Building2, Calendar } from '@lucide/vue'
 
-import { useMediaQuery } from '@vueuse/core'
 
 import gsap from 'gsap'
-import { onMounted, useTemplateRef } from 'vue'
+import { computed, onMounted, useTemplateRef } from 'vue'
 import WorkCard from './WorkCard.vue'
+import { useMediaQuery } from '@/composables/useMediaQuery.ts'
 
 const props = defineProps<WorkContentProps>()
 const line = useTemplateRef('lineRef')
@@ -38,8 +38,16 @@ onMounted(() => {
     },
   )
 })
-const baseUrl = import.meta.env.BASE_URL
-const placeImgUrl = `${baseUrl}${props?.placeImg?.src}`
+const baseUrl = computed(() => {
+  const url = import.meta.env.BASE_URL
+  if (url === '/') {
+    return ''
+  }
+
+  return url
+})
+
+const placeImgUrl = `${baseUrl.value}${props?.placeImg?.src}`
 </script>
 
 <template>

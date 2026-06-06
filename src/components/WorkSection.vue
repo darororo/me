@@ -2,7 +2,7 @@
 import type { WorkContentProps } from '@/utils/interfaces'
 
 import gsap from 'gsap'
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import WorkContent from './WorkContent.vue'
 
 const works: WorkContentProps[] = [
@@ -108,7 +108,7 @@ onMounted(() => {
   })
 })
 
-const baseUrl = import.meta.env.BASE_URL
+
 </script>
 
 <template>

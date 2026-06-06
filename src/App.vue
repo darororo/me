@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
-import { useMediaQuery } from '@vueuse/core'
+import { useMediaQuery } from '@/composables/useMediaQuery.ts'
 import gsap from 'gsap'
 import { DrawSVGPlugin, ScrollTrigger } from 'gsap/all'
 import { onMounted, useTemplateRef } from 'vue'
