@@ -1,29 +1,9 @@
 <script setup lang="ts">
-import { Code, LaptopMinimal } from '@lucide/vue'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/all'
-import { onMounted, useTemplateRef } from 'vue'
-
-const container = useTemplateRef('containerRef')
-const cow = useTemplateRef('cowRef')
-const flame = useTemplateRef('flameRef')
-const blast = useTemplateRef('blastRef')
-
-onMounted(() => {
-  const tl = gsap.timeline({ repeat: -1 })
-
-  tl.fromTo(blast.value, { opacity: 0 }, { opacity: 1, x: 400, duration: 0.5 },
-  )
-    .to(blast.value, { opacity: 0, duration: 0.3 }) // fade out blast
-    .fromTo(flame.value, { opacity: 0 }, { opacity: 1 },
-    )
-})
+import { LaptopMinimal } from '@lucide/vue'
 </script>
 
 <template>
-  <div
-    ref="containerRef"
-  >
+  <div>
     <div class="flex gap-40 justify-center p-8  rounded-lg">
       <div class="relative">
         <div>
