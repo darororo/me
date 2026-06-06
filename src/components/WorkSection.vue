@@ -93,7 +93,7 @@ const works: WorkContentProps[] = [
 ]
 
 onMounted(() => {
-  const splatters = gsap.utils.toArray('.splatter')
+  const splatters: HTMLImageElement[] = gsap.utils.toArray('.splatter')
 
   splatters.forEach((splatter) => {
     gsap.fromTo((splatter), {
