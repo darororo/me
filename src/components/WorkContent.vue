@@ -33,6 +33,8 @@ onMounted(() => {
     },
   )
 })
+const baseUrl = import.meta.env.BASE_URL
+const placeImgUrl = `${baseUrl}${props?.placeImg?.src}`
 </script>
 
 <template>
@@ -53,7 +55,7 @@ onMounted(() => {
         <img
           ref="imageRef"
           loading="lazy"
-          :src="props.placeImg?.src"
+          :src="placeImgUrl"
           :alt="props.placeImg?.alt"
           width="80"
           class="rounded-full"

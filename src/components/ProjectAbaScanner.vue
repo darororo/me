@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { LaptopMinimal } from '@lucide/vue'
+import GithubButton from './GithubButton.vue'
 </script>
 
 <template>
@@ -36,13 +37,9 @@ import { LaptopMinimal } from '@lucide/vue'
           </div>
 
           <div class="mt-6 relative flex justify-end">
-            <a
-              href="https://github.com/darororo/aba-invoice-ocr"
-              target="_blank" rel="noopener noreferrer"
-              class="bg-gray-500 hover:bg-sky-800 p-4 text-2xl text-white rounded-2xl "
-            >
-              Github
-            </a>
+            <GithubButton
+              src="https://github.com/darororo/aba-invoice-ocr"
+            />
 
             <img
               src="/cat-shake.gif" width="100" alt=""

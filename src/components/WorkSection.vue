@@ -107,6 +107,8 @@ onMounted(() => {
     })
   })
 })
+
+const baseUrl = import.meta.env.BASE_URL
 </script>
 
 <template>

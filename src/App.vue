@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
 import gsap from 'gsap'
-import {ScrollTrigger } from 'gsap/all'
+import { ScrollTrigger } from 'gsap/all'
 import { onMounted, useTemplateRef } from 'vue'
 import ProfileSection from './components/ProfileSection.vue'
 import ProjectSection from './components/ProjectSection.vue'
@@ -10,6 +11,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 const paracat = useTemplateRef('paracatRef')
 const calloutSectionRef = useTemplateRef('stopSectionRef')
+
+useHead({
+  title: 'Daro - Portfolio',
+})
 
 onMounted(() => {
   gsap.to(paracat.value, {
@@ -46,7 +51,7 @@ onMounted(() => {
       <section
         id="projects"
         ref="stopSectionRef"
-        class="my-20 "
+        class="mt-20 "
       >
         <ProjectSection />
       </section>

@@ -3,6 +3,7 @@ import { Code, LaptopMinimal } from '@lucide/vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 import { onMounted, useTemplateRef } from 'vue'
+import GithubButton from './GithubButton.vue'
 
 const container = useTemplateRef('containerRef')
 const cow = useTemplateRef('cowRef')
@@ -56,13 +57,9 @@ onMounted(() => {
           </div>
 
           <div class="mt-6 relative flex justify-end">
-            <a
-              href="https://github.com/darororo/FXGL-Fighting-Game"
-              target="_blank" rel="noopener noreferrer"
-              class="bg-gray-500 hover:bg-sky-800 p-4 text-2xl text-white rounded-2xl "
-            >
-              Github
-            </a>
+            <GithubButton
+              src="https://github.com/darororo/FXGL-Fighting-Game"
+            />
 
             <img
               src="/cat-shake.gif" width="100" alt=""

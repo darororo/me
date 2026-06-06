@@ -46,7 +46,7 @@ import { Code, LaptopMinimal } from '@lucide/vue'
           <a
             href="https://darororo.github.io/fortnite-automaton/"
             target="_blank" rel="noopener noreferrer"
-            class="bg-sky-600 hover:bg-sky-800 p-4 text-2xl text-white rounded-2xl "
+            class="bg-sky-600 hover:bg-sky-800 p-4 text-xl text-white rounded-xl "
           >
             Demo
           </a>

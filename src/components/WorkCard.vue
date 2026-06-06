@@ -3,6 +3,7 @@ import type { WorkCardProps } from '@/utils/interfaces'
 import gsap from 'gsap'
 
 import { onMounted, ref, useTemplateRef } from 'vue'
+import GithubButton from './GithubButton.vue'
 
 const props = defineProps<WorkCardProps>()
 
@@ -27,7 +28,7 @@ onMounted(() => {
       backgroundColor: 'white',
     },
     {
-      backgroundColor: '#aafe83',
+      backgroundColor: '#e8efff',
       duration: '0.3',
       scrollTrigger: {
         trigger: card.value,
@@ -72,9 +73,15 @@ const imgSrc = `${baseUrl}${props.img?.src}`
     >
       <div class="p-2">
         <ul class="space-y-4">
-          <h3 class="text-xl font-bold">
-            {{ props.title }}
-          </h3>
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-bold">
+              {{ props.title }}
+            </h3>
+            <GithubButton
+              v-if="props.repo?.src"
+              :src="props.repo?.src"
+            />
+          </div>
           <div class="pl-4 text-xl">
             <li v-for="item in props.items" :key="item" class="py-1">
               {{ item }}
@@ -98,27 +105,13 @@ const imgSrc = `${baseUrl}${props.img?.src}`
       ref="galleryRef"
       class="absolute w-sm  top-0 -right-1/2 "
     >
-      <div class="relative">
+      <div class="relative flex flex-col items-cente">
         <img
           v-if="props.img?.src"
           class="absolute rounded-lg "
-          :src="props.img?.src"
+          :src="imgSrc"
           :alt="props.img?.alt"
           loading="lazy"
-        >
-        <a
-          v-if="props.repo?.src"
-          target="_blank" rel="noopener noreferrer"
-          :href="imgSrc"
-          class="bg-gray-500 text-white p-4 rounded-xl absolute
-          translate-y-20 hover:bg-gray-800
-          "
-        >
-          Github
-        </a>
-        <img
-          v-if="props.repo?.src" src="/lightning.gif" alt=""
-          class="absolute -z-10 -translate-y-12"
         >
       </div>
     </div>
