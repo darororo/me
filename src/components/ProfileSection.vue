@@ -1,7 +1,41 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import ContactButton from './ContactButton.vue'
 
+const baseUrl = computed(() => {
+  const url = import.meta.env.BASE_URL
+  if (url === '/') {
+    return ''
+  }
+  return url
+})
 
+const buttons = ref([
+  {
+    url: 'https://github.com/darororo',
+    imgSrc: `${baseUrl.value}/github.png`,
+    alt: 'github',
+
+  },
+  {
+    url: 'https://t.me/daroyem',
+    imgSrc: `${baseUrl.value}/telegram.webp`,
+    alt: 'telegram',
+
+  },
+  {
+    url: 'mailto:daroyem99@gmail.com',
+    imgSrc: `${baseUrl.value}/gmail.svg`,
+    alt: 'gmail',
+    class: 'bg-white',
+  },
+  {
+    url: 'https://www.linkedin.com/in/daro-yem-723b66229/',
+    imgSrc: `${baseUrl.value}/linkedin.webp`,
+    alt: 'linkedin',
+
+  },
+])
 </script>
 
 <template>
@@ -16,25 +50,12 @@ import ContactButton from './ContactButton.vue'
     </div>
     <div class="flex items-center justify-center gap-4 mt-4">
       <ContactButton
-        url="https://github.com/darororo"
-      img-src="/github.png"
-        alt="github"
-      />
-      <ContactButton
-        url="https://t.me/daroyem"
-        img-src="/telegram.webp"
-        alt="telegram"
-      />
-      <ContactButton
-        url="mailto:daroyem99@gmail.com"
-        img-src="/gmail.svg"
-        alt="gmail"
-        class="bg-white"
-      />
-      <ContactButton
-        url="https://www.linkedin.com/in/daro-yem-723b66229/"
-        img-src="/linkedin.webp"
-        alt="linkedin"
+        v-for="(btn,) in buttons"
+        :key="btn.url"
+        :url="btn.url "
+        :img-src="btn.imgSrc"
+        :alt="btn.alt"
+        :class="btn.class"
       />
     </div>
   </div>
