@@ -5,15 +5,13 @@ import { ScrollTrigger } from 'gsap/all'
 import { onMounted, useTemplateRef } from 'vue'
 import GithubButton from './GithubButton.vue'
 
-const container = useTemplateRef('containerRef')
-const cow = useTemplateRef('cowRef')
 const flame = useTemplateRef('flameRef')
 const blast = useTemplateRef('blastRef')
 
 onMounted(() => {
   const tl = gsap.timeline({ repeat: -1 })
 
-  tl.fromTo(blast.value, { opacity: 0 }, { opacity: 1, x: 400, duration: 0.5 },
+  tl.fromTo(blast.value, { opacity: 0 }, { opacity: 1, x: 200, duration: 0.8 },
   )
     .to(blast.value, { opacity: 0, duration: 0.3 }) // fade out blast
     .fromTo(flame.value, { opacity: 0 }, { opacity: 1 },
@@ -22,9 +20,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
-    ref="containerRef"
-  >
+  <div>
     <div
       class="flex flex-col lg:flex-row lg:gap-40 justify-center p-8  rounded-lg
     items-center lg:items-start"
@@ -70,7 +66,7 @@ onMounted(() => {
             >
           </div>
           <div class="relative z-10 -top-15">
-            <div ref="cowRef" class="absolute w-sm -bottom-4">
+            <div class="absolute w-sm -bottom-4">
               <img
                 loading="lazy"
                 class=" absolute"
@@ -88,7 +84,7 @@ onMounted(() => {
               <img
                 ref="blastRef"
                 loading="lazy"
-                class=".flame absolute translate-x-full left-20 top-0 w-16"
+                class=".flame absolute translate-x-full left-4 top-0 w-16"
                 src="/fighty-c/blast.png"
                 alt="Flame"
               >
