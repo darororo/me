@@ -2,11 +2,10 @@
 import type { WorkContentProps } from '@/utils/interfaces.ts'
 import { BriefcaseBusiness, Building2, Calendar } from '@lucide/vue'
 
-
 import gsap from 'gsap'
 import { computed, onMounted, useTemplateRef } from 'vue'
-import WorkCard from './WorkCard.vue'
 import { useMediaQuery } from '@/composables/useMediaQuery.ts'
+import WorkCard from './WorkCard.vue'
 
 const props = defineProps<WorkContentProps>()
 const line = useTemplateRef('lineRef')
@@ -54,7 +53,7 @@ const placeImgUrl = `${baseUrl.value}${props?.placeImg?.src}`
   <div class="">
     <div
       class="flex flex-row items-center justify-center lg:justify-start
-     lg:items-start lg:flex-row gap-24 lg:gap-2"
+     lg:items-start lg:flex-row gap-10 md:gap-24 lg:gap-2"
     >
       <div class="">
         <h2 class="font-bold text-lg lg:text-xl flex gap-1 items-center text-nowrap">
@@ -67,15 +66,20 @@ const placeImgUrl = `${baseUrl.value}${props?.placeImg?.src}`
           <span><Calendar /></span> {{ props.date }}
         </p>
       </div>
+
+      <!-- Company image on mobile -->
       <div class="">
         <img
           :src="`${baseUrl}${props.placeImg?.src}`"
           :alt="props.placeImg?.alt"
+          width="80"
+          loading="lazy"
           class=" lg:hidden rounded-full w-24"
         >
       </div>
     </div>
     <div class="flex justify-center lg:justify-start gap-20 mt-4">
+      <!-- Company image on desktop + line -->
       <div class="hidden lg:flex relative  flex-col items-center justify-start">
         <img
           ref="imageRef"

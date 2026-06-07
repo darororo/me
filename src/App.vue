@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { useHead } from '@unhead/vue'
-import { useMediaQuery } from '@/composables/useMediaQuery.ts'
 import gsap from 'gsap'
 import { DrawSVGPlugin, ScrollTrigger } from 'gsap/all'
 import { onMounted, useTemplateRef } from 'vue'
+import { useMediaQuery } from '@/composables/useMediaQuery.ts'
 import ProfileSection from './components/ProfileSection.vue'
 import ProjectSection from './components/ProjectSection.vue'
 import WorkSection from './components/WorkSection.vue'
@@ -12,10 +11,6 @@ gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin)
 
 const paracat = useTemplateRef('paracatRef')
 const calloutSectionRef = useTemplateRef('stopSectionRef')
-
-useHead({
-  title: 'Daro - Portfolio',
-})
 
 const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 
